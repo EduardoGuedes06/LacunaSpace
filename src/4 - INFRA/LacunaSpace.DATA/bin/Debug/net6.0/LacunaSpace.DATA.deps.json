@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "LacunaSpace.DATA/1.0.0": {
+        "runtime": {
+          "LacunaSpace.DATA.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LacunaSpace.DATA/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\bin\Debug\net6.0\LacunaSpace.DOMAIN.deps.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\bin\Debug\net6.0\LacunaSpace.DOMAIN.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\bin\Debug\net6.0\LacunaSpace.DOMAIN.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.GeneratedMSBuildEditorConfig.editorconfig
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.AssemblyInfoInputs.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.AssemblyInfo.cs
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.csproj.CoreCompileInputs.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.sourcelink.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\refint\LacunaSpace.DOMAIN.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\LacunaSpace.DOMAIN.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\3 - DOMAIN\LacunaSpace.DOMAIN\obj\Debug\net6.0\ref\LacunaSpace.DOMAIN.dll

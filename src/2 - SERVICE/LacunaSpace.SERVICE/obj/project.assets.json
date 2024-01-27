@@ -1,11 +1,69 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "FluentValidation/11.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "LacunaSpace.DOMAIN/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/LacunaSpace.DOMAIN.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LacunaSpace.DOMAIN.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "FluentValidation/11.9.0": {
+      "sha512": "VneVlTvwYDkfHV5av3QrQ0amALgrLX6LV94wlYyEsh0B/klJBW7C8y2eAtj5tOZ3jH6CAVpr4s1ZGgew/QWyig==",
+      "type": "package",
+      "path": "fluentvalidation/11.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.9.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
+      ]
+    },
+    "LacunaSpace.DOMAIN/1.0.0": {
+      "type": "project",
+      "path": "../../3 - DOMAIN/LacunaSpace.DOMAIN/LacunaSpace.DOMAIN.csproj",
+      "msbuildProject": "../../3 - DOMAIN/LacunaSpace.DOMAIN/LacunaSpace.DOMAIN.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "FluentValidation >= 11.9.0",
+      "LacunaSpace.DOMAIN >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Eduardo\\.nuget\\packages\\": {}
@@ -33,7 +91,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj": {
+              "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -45,6 +107,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[11.9.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

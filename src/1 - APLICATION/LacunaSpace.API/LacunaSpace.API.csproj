@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\2 - SERVICE\LacunaSpace.SERVICE\LacunaSpace.SERVICE.csproj" />
+    <ProjectReference Include="..\..\3 - DOMAIN\LacunaSpace.DOMAIN\LacunaSpace.DOMAIN.csproj" />
+    <ProjectReference Include="..\..\4 - INFRA\LacunaSpace.DATA\LacunaSpace.DATA.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "xthaUZ2PcwWjUNUE0/YeGteGkNx6WlVaIw1gla3jIY48ahiF+WQx7ASiAgxWg0lwcPGjS/XmWVundTeUd+SIVw==",
+  "dgSpecHash": "SUGffzMYKtsTDIf2MjkZNb6p/4D28FptztOrmm1SUBuwPfdjFyEtRoRhuGaeQM4sItbzq6eEF663I/GXJ8CFuQ==",
   "success": true,
   "projectFilePath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Eduardo\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512"
+  ],
   "logs": []
 }

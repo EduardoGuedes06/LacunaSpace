@@ -1,0 +1,12 @@
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\bin\Debug\net6.0\LacunaSpace.DATA.deps.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\bin\Debug\net6.0\LacunaSpace.DATA.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\bin\Debug\net6.0\LacunaSpace.DATA.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.GeneratedMSBuildEditorConfig.editorconfig
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.AssemblyInfoInputs.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.AssemblyInfo.cs
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.csproj.CoreCompileInputs.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.sourcelink.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\refint\LacunaSpace.DATA.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\LacunaSpace.DATA.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\4 - INFRA\LacunaSpace.DATA\obj\Debug\net6.0\ref\LacunaSpace.DATA.dll

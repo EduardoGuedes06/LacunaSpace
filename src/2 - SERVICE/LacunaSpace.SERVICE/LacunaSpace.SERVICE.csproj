@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\3 - DOMAIN\LacunaSpace.DOMAIN\LacunaSpace.DOMAIN.csproj" />
+  </ItemGroup>
+
 </Project>

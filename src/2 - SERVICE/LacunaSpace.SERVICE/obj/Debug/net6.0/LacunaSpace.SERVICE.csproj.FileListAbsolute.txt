@@ -1,0 +1,16 @@
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.GeneratedMSBuildEditorConfig.editorconfig
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.AssemblyInfoInputs.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.AssemblyInfo.cs
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.csproj.CoreCompileInputs.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.sourcelink.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.csproj.AssemblyReference.cache
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\bin\Debug\net6.0\LacunaSpace.SERVICE.deps.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\bin\Debug\net6.0\LacunaSpace.SERVICE.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\bin\Debug\net6.0\LacunaSpace.SERVICE.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\bin\Debug\net6.0\LacunaSpace.DOMAIN.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\bin\Debug\net6.0\LacunaSpace.DOMAIN.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.csproj.CopyComplete
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\refint\LacunaSpace.SERVICE.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\LacunaSpace.SERVICE.pdb
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\2 - SERVICE\LacunaSpace.SERVICE\obj\Debug\net6.0\ref\LacunaSpace.SERVICE.dll
