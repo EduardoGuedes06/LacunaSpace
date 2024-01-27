@@ -19,12 +19,6 @@ D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.DATA.dll
-D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.DOMAIN.dll
-D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.SERVICE.dll
-D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.SERVICE.pdb
-D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.DOMAIN.pdb
-D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.DATA.pdb
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj\Debug\net6.0\LacunaSpace.API.MvcApplicationPartsAssemblyInfo.cs
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj\Debug\net6.0\staticwebassets.build.json
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj\Debug\net6.0\staticwebassets.development.json

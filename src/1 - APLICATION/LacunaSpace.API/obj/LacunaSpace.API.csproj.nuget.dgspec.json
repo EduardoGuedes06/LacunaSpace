@@ -27,17 +27,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj": {
-                "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj"
-              },
-              "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj": {
-                "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj"
-              },
-              "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj": {
-                "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -53,6 +43,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[11.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -74,181 +68,6 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj",
-        "projectName": "LacunaSpace.SERVICE",
-        "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj",
-        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj": {
-                "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[11.9.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj",
-        "projectName": "LacunaSpace.DOMAIN",
-        "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj",
-        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj",
-        "projectName": "LacunaSpace.DATA",
-        "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj",
-        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

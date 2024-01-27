@@ -9,9 +9,7 @@
       "LacunaSpace.API/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
-          "LacunaSpace.DATA": "1.0.0",
-          "LacunaSpace.DOMAIN": "1.0.0",
-          "LacunaSpace.SERVICE": "1.0.0",
+          "FluentValidation": "11.9.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -109,26 +107,7 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-      "LacunaSpace.DATA/1.0.0": {
-        "runtime": {
-          "LacunaSpace.DATA.dll": {}
-        }
-      },
-      "LacunaSpace.DOMAIN/1.0.0": {
-        "runtime": {
-          "LacunaSpace.DOMAIN.dll": {}
-        }
-      },
-      "LacunaSpace.SERVICE/1.0.0": {
-        "dependencies": {
-          "FluentValidation": "11.9.0",
-          "LacunaSpace.DOMAIN": "1.0.0"
-        },
-        "runtime": {
-          "LacunaSpace.SERVICE.dll": {}
-        }
-      }
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {}
     }
   },
   "libraries": {
@@ -234,21 +213,6 @@
       "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
-    },
-    "LacunaSpace.DATA/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "LacunaSpace.DOMAIN/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "LacunaSpace.SERVICE/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

@@ -207,40 +207,6 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
-      },
-      "LacunaSpace.DATA/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/LacunaSpace.DATA.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LacunaSpace.DATA.dll": {}
-        }
-      },
-      "LacunaSpace.DOMAIN/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/LacunaSpace.DOMAIN.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LacunaSpace.DOMAIN.dll": {}
-        }
-      },
-      "LacunaSpace.SERVICE/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "FluentValidation": "11.9.0",
-          "LacunaSpace.DOMAIN": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/LacunaSpace.SERVICE.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LacunaSpace.SERVICE.dll": {}
-        }
       }
     }
   },
@@ -801,29 +767,12 @@
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "LacunaSpace.DATA/1.0.0": {
-      "type": "project",
-      "path": "../../4 - INFRA/LacunaSpace.DATA/LacunaSpace.DATA.csproj",
-      "msbuildProject": "../../4 - INFRA/LacunaSpace.DATA/LacunaSpace.DATA.csproj"
-    },
-    "LacunaSpace.DOMAIN/1.0.0": {
-      "type": "project",
-      "path": "../../3 - DOMAIN/LacunaSpace.DOMAIN/LacunaSpace.DOMAIN.csproj",
-      "msbuildProject": "../../3 - DOMAIN/LacunaSpace.DOMAIN/LacunaSpace.DOMAIN.csproj"
-    },
-    "LacunaSpace.SERVICE/1.0.0": {
-      "type": "project",
-      "path": "../../2 - SERVICE/LacunaSpace.SERVICE/LacunaSpace.SERVICE.csproj",
-      "msbuildProject": "../../2 - SERVICE/LacunaSpace.SERVICE/LacunaSpace.SERVICE.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
-      "LacunaSpace.DATA >= 1.0.0",
-      "LacunaSpace.DOMAIN >= 1.0.0",
-      "LacunaSpace.SERVICE >= 1.0.0",
+      "FluentValidation >= 11.9.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -853,17 +802,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj": {
-              "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\2 - SERVICE\\LacunaSpace.SERVICE\\LacunaSpace.SERVICE.csproj"
-            },
-            "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj": {
-              "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\3 - DOMAIN\\LacunaSpace.DOMAIN\\LacunaSpace.DOMAIN.csproj"
-            },
-            "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj": {
-              "projectPath": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\4 - INFRA\\LacunaSpace.DATA\\LacunaSpace.DATA.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -879,6 +818,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[11.0.0, )"
+          },
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[11.9.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
