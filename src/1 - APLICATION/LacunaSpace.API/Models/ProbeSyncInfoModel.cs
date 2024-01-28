@@ -1,10 +1,11 @@
-﻿namespace LacunaSpace.API.Models
+﻿using LacunaSpace.API.Models.Request;
+
+namespace LacunaSpace.API.Models
 {
-    public class ProbeSyncInfoModel
+    public class ProbeSyncInfoModel : ProbeVerifyTaskRequest
     {
         public string ProbeId { get; set; }
-        public long TimeOffset { get; set; }
-        public long RoundTrip { get; set; }
+
     }
 
 }

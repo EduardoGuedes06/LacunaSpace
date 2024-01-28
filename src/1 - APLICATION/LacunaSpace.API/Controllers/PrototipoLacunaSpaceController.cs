@@ -83,7 +83,7 @@ namespace Ipet.API.Controllers
         {
             try
             {
-                
+                await _lacunaSpaceService.IniciarTarefa(accessToken);
                 
                 return Ok();
             }

@@ -6,6 +6,9 @@ using FluentValidation.Results;
 using LacunaSpace.Domain.Intefaces;
 using LacunaSpace.Domain.Notificacoes;
 using System.Net.Http.Headers;
+using System.Xml;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 
 
@@ -74,7 +77,7 @@ namespace LacunaSpace.Service
 
         public async Task<T> PostAsync<T>(string url, object body)
             {
-                string jsonBody = JsonSerializer.Serialize(body);
+                string jsonBody = System.Text.Json.JsonSerializer.Serialize(body);
                 HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content);
@@ -116,10 +119,34 @@ namespace LacunaSpace.Service
             try
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-                string jsonBody = JsonSerializer.Serialize(body);
+
+                var jsonSerializerSettings = new JsonSerializerSettings
+                {
+                    Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() },
+                    StringEscapeHandling = StringEscapeHandling.Default,
+                    FloatParseHandling = FloatParseHandling.Double,
+                    FloatFormatHandling = FloatFormatHandling.DefaultValue,
+                    Formatting = Newtonsoft.Json.Formatting.None,
+                    DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                    DateTimeZoneHandling = DateTimeZoneHandling.Utc
+                };
+
+                string jsonBody = JsonConvert.SerializeObject(body, jsonSerializerSettings);
                 HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
                 HttpResponseMessage response = await _httpClient.PostAsync(url, content);
-                return await HandleResponse<T>(response);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    T result = JsonConvert.DeserializeObject<T>(jsonResponse, jsonSerializerSettings);
+                    return result;
+                }
+                else
+                {
+                    Notificar($"Erro na requisição POST. Código de status: {response.StatusCode}");
+                    throw new HttpRequestException($"Erro na requisição POST. Código de status: {response.StatusCode}");
+                }
             }
             catch (Exception ex)
             {
@@ -127,6 +154,8 @@ namespace LacunaSpace.Service
                 throw;
             }
         }
+
+
         public async Task<T> GetWithTokenAsync<T>(string url, string accessToken)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);

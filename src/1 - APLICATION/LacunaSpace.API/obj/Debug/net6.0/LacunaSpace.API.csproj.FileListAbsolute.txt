@@ -34,3 +34,5 @@ D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj\Debug\net6.0\LacunaSpace.API.pdb
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj\Debug\net6.0\LacunaSpace.API.genruntimeconfig.cache
 D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\obj\Debug\net6.0\ref\LacunaSpace.API.dll
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\LacunaSpace.API.staticwebassets.runtime.json
+D:\AMBIENTE DEV\C#\Lacuna Dev\LacunaSpace\src\1 - APLICATION\LacunaSpace.API\bin\Debug\net6.0\Newtonsoft.Json.dll

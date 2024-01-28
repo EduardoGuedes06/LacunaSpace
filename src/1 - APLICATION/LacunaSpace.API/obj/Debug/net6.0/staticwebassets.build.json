@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "6xvfXpTKR3MOsnw2ftkaIHrVG+OAloSG6u2PSoOxb8Y=",
+  "Hash": "CFigLSp/ku3S+nIsm3C6PQSOe57r4xx1N33a+iQ/gOc=",
   "Source": "LacunaSpace.API",
   "BasePath": "_content/LacunaSpace.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LacunaSpace.API\\wwwroot",
+      "Source": "LacunaSpace.API",
+      "ContentRoot": "D:\\AMBIENTE DEV\\C#\\Lacuna Dev\\LacunaSpace\\src\\1 - APLICATION\\LacunaSpace.API\\wwwroot\\",
+      "BasePath": "_content/LacunaSpace.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

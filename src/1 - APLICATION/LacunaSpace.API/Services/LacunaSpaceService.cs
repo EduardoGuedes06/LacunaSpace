@@ -14,8 +14,9 @@ namespace LacunaSpace.Service
 {
     public class LacunaSpaceService : BaseService, ILacunaSpaceService
     {
-        private Dictionary<string, ProbeSyncInfoModel> ProbeSyncInfoCache = new Dictionary<string, ProbeSyncInfoModel>();
-        private Dictionary<string, ProbeModel> ProbeCache = new Dictionary<string, ProbeModel>();
+        public Dictionary<string, ProbeSyncInfoModel> ProbeSyncInfoCache = new Dictionary<string, ProbeSyncInfoModel>();
+        public Dictionary<string, ProbeModel> ProbeCache = new Dictionary<string, ProbeModel>();
+
 
 
         public LacunaSpaceService(INotificador notificador, HttpClient httpClient)
@@ -56,7 +57,7 @@ namespace LacunaSpace.Service
                 {
                     foreach (var probe in response.probes)
                     {
-                        ProbeCache[probe.id] = probe;
+                        ProbeCache[probe.name] = probe;
                     }
 
                     return response.probes;
@@ -74,6 +75,92 @@ namespace LacunaSpace.Service
             }
         }
 
+        public async Task IniciarTarefa(string accessToken)
+        {
+            try
+            {
+                var response = await PostWithTokenAsync<JobResponseModel>("https://luma.lacuna.cc/api/job/take", "",accessToken);
+                if (response.code == "Success")
+                {
+
+                    if (ProbeCache.Count == 0) {await ListarSondas(accessToken);}                  
+                    ProbeModel sonda = ProbeCache[response.job.probeName];
+                    await SyncAndVerifyClockWithProbe(sonda.id, accessToken);
+                    List<ProbeSyncInfoModel> verify = ProbeSyncInfoCache.Values.ToList();
+                    foreach (var syncInfo in verify)
+                    {
+                        JobRequestDone jobDone = new JobRequestDone
+                        {
+                            probeNow = DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset.ToString(),
+                            roundTrip = syncInfo.RoundTrip,
+                        };
+
+                        //Tentei ultilizar a serialização Nativa do .Net e Json, mas por algum motivo recebi o erro:(
+                        //The input is not a valid Base-64 string as it contains a non-base 64 character,
+                        //more than two padding characters, or an illegal character among the padding characters.)
+
+                        //Então optei pelo uso direto de uma String nativa
+
+                        string jsonBody = $"{{\"probeNow\": \"{DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset.ToString()}\", \"roundTrip\": {syncInfo.RoundTrip}}}";
+
+
+
+                        await VerificaTarefa(response.job.id,accessToken, jsonBody);
+                    }
+
+                   if (sonda == null) 
+                   {
+                       Notificar("Erro");
+                       throw new Exception($"Sonda não encontrada");
+                   }
+
+                }
+                else if( response.code == "Unauthorized") {
+                    Notificar("Erro");
+                    throw new Exception($"Token expirado");
+                }
+                else
+                {
+                    Notificar("Erro");
+                    throw new Exception($"Falha ao iniciar o teste");
+                }
+            }
+            catch (Exception ex)
+            {
+                Notificar($"Erro ao iniciar o teste: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task VerificaTarefa(string idJob,string accessToken, string job)
+        {
+            try
+            {
+                var response = await PostWithTokenAsync<SimpleResponse>(@$"https://luma.lacuna.cc/api/job/{idJob}/check", job, accessToken);
+                if (response.code == "Success")
+                {
+
+                    
+
+
+                }
+                else if (response.code == "Unauthorized")
+                {
+                    Notificar("Erro");
+                    throw new Exception($"Token expirado");
+                }
+                else
+                {
+                    Notificar("Erro");
+                    throw new Exception($"Falha ao iniciar o teste");
+                }
+            }
+            catch (Exception ex)
+            {
+                Notificar($"Erro ao iniciar o teste: {ex.Message}");
+                throw;
+            }
+        }
         public async Task SincronizarRelogios(string accessToken)
         {
             try
@@ -100,25 +187,6 @@ namespace LacunaSpace.Service
             catch (Exception ex)
             {
                 Notificar($"Erro na sincronização com a sonda {probeId}: {ex.Message}");
-                throw;
-            }
-        }
-        private void VerificarSincronizacaoLocal(string probeId)
-        {
-            try
-            {
-                if (Math.Abs(ProbeSyncInfoCache[probeId].TimeOffset) > TimeSpan.FromMilliseconds(5).Ticks)
-                {
-                    Console.WriteLine($"O relógio da sonda {probeId} não está sincronizado!");
-                }
-                else
-                {
-                    Console.WriteLine($"O relógio da sonda {probeId} está sincronizado!");
-                }
-            }
-            catch (Exception ex)
-            {
-                Notificar($"Erro ao verificar a sincronização local para a sonda {probeId}: {ex.Message}");
                 throw;
             }
         }
@@ -156,6 +224,25 @@ namespace LacunaSpace.Service
             }
         }
 
+        private void VerificarSincronizacaoLocal(string probeId)
+        {
+            try
+            {
+                if (Math.Abs(ProbeSyncInfoCache[probeId].TimeOffset) > TimeSpan.FromMilliseconds(5).Ticks)
+                {
+                    Console.WriteLine($"O relógio da sonda {probeId} não está sincronizado!");
+                }
+                else
+                {
+                    Console.WriteLine($"O relógio da sonda {probeId} está sincronizado!");
+                }
+            }
+            catch (Exception ex)
+            {
+                Notificar($"Erro ao verificar a sincronização local para a sonda {probeId}: {ex.Message}");
+                throw;
+            }
+        }
         private void CacheTimeOffsetAndRoundTrip(string probeId, long timeOffset, long roundTrip)
         {
 
