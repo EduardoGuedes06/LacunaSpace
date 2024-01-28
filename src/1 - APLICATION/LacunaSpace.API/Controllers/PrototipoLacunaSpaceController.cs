@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GameMasterEnterprise.Domain.Intefaces;
 using LacunaSpace.API.Controllers;
+using LacunaSpace.API.Models;
 using LacunaSpace.API.Models.Request;
 using LacunaSpace.API.Models.Response;
 using LacunaSpace.Domain.Intefaces;
@@ -60,19 +61,21 @@ namespace Ipet.API.Controllers
 
 
         [AllowAnonymous]
-        [HttpPost("api/sincronizar-sonda")]
-        public async Task<ActionResult> SincronizarSondas(ProbeListRequestModel Sondas, string accessToken)
+        [HttpPost("api/sincronizar-sondas")]
+        public async Task<ActionResult<List<ProbeSyncInfoModel>>> SincronizarSondas(string accessToken)
         {
             try
             {
-                await _lacunaSpaceService.SincronizarRelogios(Sondas,accessToken);
-                return Ok();
+                await _lacunaSpaceService.SincronizarRelogios(accessToken);
+                var dadosSincronizados = _lacunaSpaceService.ObterDadosSincronizados();
+                return Ok(dadosSincronizados);
             }
             catch (Exception ex)
             {
                 return BadRequest(new { Mensagem = ex.Message });
             }
         }
+
 
 
 

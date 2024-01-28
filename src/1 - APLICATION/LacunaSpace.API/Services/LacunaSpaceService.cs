@@ -1,4 +1,5 @@
 ﻿using GameMasterEnterprise.Domain.Intefaces;
+using LacunaSpace.API.Extensions;
 using LacunaSpace.API.Models;
 using LacunaSpace.API.Models.Request;
 using LacunaSpace.API.Models.Response;
@@ -67,11 +68,12 @@ namespace LacunaSpace.Service
         }
 
 
-        public async Task SincronizarRelogios(ProbeListRequestModel sondas, string accessToken)
+        public async Task SincronizarRelogios(string accessToken)
         {
             try
             {
-                foreach (var sonda in sondas.probes)
+                var sondas = await ListarSondas(accessToken);
+                foreach (var sonda in sondas)
                 {
                     await SyncAndVerifyClockWithProbe(sonda.id, accessToken);
                 }
@@ -163,18 +165,70 @@ namespace LacunaSpace.Service
 
         private long ParseAndCalculateTimeOffset(SyncResponseModel syncResponse, long t0, long t3)
         {
-            long t1 = long.Parse(syncResponse.t1);
-            long t2 = long.Parse(syncResponse.t2);
+            long t1 = DecodeTimestamp(syncResponse.t1);
+            long t2 = DecodeTimestamp(syncResponse.t2);
+
 
             return (t1 - t0 + t2 - t3) / 2;
         }
 
         private long ParseAndCalculateRoundTrip(SyncResponseModel syncResponse, long t0, long t3)
         {
-            long t1 = long.Parse(syncResponse.t1);
-            long t2 = long.Parse(syncResponse.t2);
+            long t1 = DecodeTimestamp(syncResponse.t1);
+            long t2 = DecodeTimestamp(syncResponse.t2);
+
 
             return t3 - t0 - (t2 - t1);
         }
+        private long DecodeTimestamp(string timestamp)
+        {
+            string encoding = DiscoverEncoding(timestamp);
+
+            switch (encoding)
+            {
+                case "Iso8601":
+                    return DateTimeOffset.Parse(timestamp).Ticks;
+                case "Ticks":
+                    return long.Parse(timestamp);
+                case "TicksBinary":
+                    return Convert.FromBase64String(timestamp).ToLittleEndianBytesToLong();
+                case "TicksBinaryBigEndian":
+                    return Convert.FromBase64String(timestamp).ToBigEndianBytesToLong();
+                default:
+                    throw new NotSupportedException($"Tipo de codificação não suportado: {encoding}");
+            }
+        }
+
+        private string DiscoverEncoding(string timestamp)
+        {
+
+            if (timestamp.Contains("-") && timestamp.Contains(":"))
+            {
+                return "Iso8601";
+            }
+            else if (timestamp.Length > 10 && timestamp.Length < 20 && long.TryParse(timestamp, out _))
+            {
+                return "Ticks";
+            }
+            else if (timestamp.Length % 4 == 0 && timestamp.Contains("="))
+            {
+                return "TicksBinary";
+            }
+            else if (timestamp.Length % 4 == 0 && timestamp.Contains("="))
+            {
+                return "TicksBinaryBigEndian";
+            }
+            else
+            {
+                return "Ticks";
+            }
+        }
+        public List<ProbeSyncInfoModel> ObterDadosSincronizados()
+        {
+            return ProbeSyncInfoCache.Values.ToList();
+        }
+
+
+
     }
 }

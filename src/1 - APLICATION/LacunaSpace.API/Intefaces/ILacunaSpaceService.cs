@@ -8,6 +8,7 @@ namespace GameMasterEnterprise.Domain.Intefaces
     {
         Task<string> IniciarTeste(StartRequestModel requestModel);
         Task<List<ProbeModel>> ListarSondas(string accessToken);
-        Task SincronizarRelogios(ProbeListRequestModel Sondas, string accessToken);
+        List<ProbeSyncInfoModel> ObterDadosSincronizados();
+        Task SincronizarRelogios(string accessToken);
     }
 }
