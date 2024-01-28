@@ -77,6 +77,21 @@ namespace Ipet.API.Controllers
         }
 
 
+        [AllowAnonymous]
+        [HttpPost("api/obter-realizar-tarefa")]
+        public async Task<ActionResult> ObterTrabalho(string accessToken)
+        {
+            try
+            {
+                
+                
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { Mensagem = ex.Message });
+            }
+        }
 
 
     }

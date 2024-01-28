@@ -15,6 +15,8 @@ namespace LacunaSpace.Service
     public class LacunaSpaceService : BaseService, ILacunaSpaceService
     {
         private Dictionary<string, ProbeSyncInfoModel> ProbeSyncInfoCache = new Dictionary<string, ProbeSyncInfoModel>();
+        private Dictionary<string, ProbeModel> ProbeCache = new Dictionary<string, ProbeModel>();
+
 
         public LacunaSpaceService(INotificador notificador, HttpClient httpClient)
             : base(notificador, httpClient)
@@ -52,6 +54,11 @@ namespace LacunaSpace.Service
 
                 if (response.code == "Success")
                 {
+                    foreach (var probe in response.probes)
+                    {
+                        ProbeCache[probe.id] = probe;
+                    }
+
                     return response.probes;
                 }
                 else
@@ -66,7 +73,6 @@ namespace LacunaSpace.Service
                 throw;
             }
         }
-
 
         public async Task SincronizarRelogios(string accessToken)
         {

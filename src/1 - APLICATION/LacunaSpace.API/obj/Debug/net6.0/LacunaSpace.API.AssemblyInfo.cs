@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LacunaSpace.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b5e39b35d5e2051b44638f0f4c5693cf51ef8ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f2215419f099673d45909d8d6161a9e492b5e83")]
 [assembly: System.Reflection.AssemblyProductAttribute("LacunaSpace.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LacunaSpace.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
