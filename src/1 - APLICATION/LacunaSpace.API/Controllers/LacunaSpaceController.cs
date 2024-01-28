@@ -31,31 +31,18 @@ namespace Ipet.API.Controllers
 
 
         [AllowAnonymous]
-        [HttpPost("api/start")]
-        public async Task<ActionResult> CriarCassino(StartRequestModel request)
+        [HttpPost("Juntando-tudo")]
+        public async Task<ActionResult> JuntarTudo(StartRequestModel request)
         {
 
-            await _lacunaSpaceService.IniciarTeste(request);
+            var retorno = await _lacunaSpaceService.IniciarTeste(request);
             
 
-            return Ok();
+            return Ok(retorno);
 
         }
 
-        [AllowAnonymous]
-        [HttpPost("api/listar-sondas")]
-        public async Task<ActionResult> ListarSondas(string accessToken)
-        {
-            try
-            {
-                var sondas = await _lacunaSpaceService.ListarSondas(accessToken);
-                return Ok(new { Sondas = sondas });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { Mensagem = ex.Message });
-            }
-        }
+
 
     }
 }

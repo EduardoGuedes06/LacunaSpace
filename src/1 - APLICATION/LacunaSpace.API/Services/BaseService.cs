@@ -65,14 +65,14 @@ namespace LacunaSpace.Service
             }
         }
 
-       public async Task<T> GetAsync<T>(string url)
+        public async Task<T> GetAsync<T>(string url)
        {
                 HttpResponseMessage response = await _httpClient.GetAsync(url);
 
                 return await HandleResponse<T>(response);
        }
 
-       public async Task<T> PostAsync<T>(string url, object body)
+        public async Task<T> PostAsync<T>(string url, object body)
             {
                 string jsonBody = JsonSerializer.Serialize(body);
                 HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
@@ -82,7 +82,7 @@ namespace LacunaSpace.Service
                 return await HandleResponse<T>(response);
             }
 
-       public async Task<T> PutAsync<T>(string url, object body)
+        public async Task<T> PutAsync<T>(string url, object body)
             {
                 string jsonBody = JsonSerializer.Serialize(body);
                 HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
@@ -92,14 +92,13 @@ namespace LacunaSpace.Service
                 return await HandleResponse<T>(response);
             }
 
-       public async Task<T> DeleteAsync<T>(string url)
+        public async Task<T> DeleteAsync<T>(string url)
             {
                 HttpResponseMessage response = await _httpClient.DeleteAsync(url);
 
                 return await HandleResponse<T>(response);
             }
-
-       private async Task<T> HandleResponse<T>(HttpResponseMessage response)
+        private async Task<T> HandleResponse<T>(HttpResponseMessage response)
             {
                 if (response.IsSuccessStatusCode)
                 {
@@ -112,10 +111,6 @@ namespace LacunaSpace.Service
                     throw new HttpRequestException($"Erro na requisição. Código de status: {response.StatusCode}");
                 }
             }
-
-
-
-
         public async Task<T> PostWithTokenAsync<T>(string url, object body, string accessToken)
         {
             try
@@ -132,7 +127,13 @@ namespace LacunaSpace.Service
                 throw;
             }
         }
+        public async Task<T> GetWithTokenAsync<T>(string url, string accessToken)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
 
+            return await HandleResponse<T>(response);
+        }
 
     }
 }
