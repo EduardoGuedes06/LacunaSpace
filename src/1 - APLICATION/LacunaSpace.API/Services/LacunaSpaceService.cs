@@ -79,49 +79,39 @@ namespace LacunaSpace.Service
         {
             try
             {
-                var response = await PostWithTokenAsync<JobResponseModel>("https://luma.lacuna.cc/api/job/take", "",accessToken);
+                var response = await PostWithTokenAsync<JobResponseModel>("https://luma.lacuna.cc/api/job/take", "", accessToken);
+
                 if (response.code == "Success")
                 {
+                    if (ProbeCache.Count == 0) { await ListarSondas(accessToken); }
 
-                    if (ProbeCache.Count == 0) {await ListarSondas(accessToken);}                  
                     ProbeModel sonda = ProbeCache[response.job.probeName];
                     await SyncAndVerifyClockWithProbe(sonda.id, accessToken);
                     List<ProbeSyncInfoModel> verify = ProbeSyncInfoCache.Values.ToList();
 
-                    
-
                     foreach (var syncInfo in verify)
                     {
-                        long tick = DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset;
-
+                        // Converta o timestamp para o formato correto antes de criar o JobRequestDone
+                        long probeNowTicks = syncInfo.TimeOffset;
+                        string probeNow = probeNowTicks.ToString();
 
                         JobRequestDone jobDone = new JobRequestDone
                         {
-                            probeNow = tick.ToString(),
+                            probeNow = Convert.ToBase64String(BitConverter.GetBytes(syncInfo.TimeOffset)),
                             roundTrip = syncInfo.RoundTrip
                         };
 
-                        //Tentei ultilizar a serialização Nativa do .Net e Json, mas por algum motivo recebi o erro:(
-                        //The input is not a valid Base-64 string as it contains a non-base 64 character,
-                        //more than two padding characters, or an illegal character among the padding characters.)
-
-                        //Então optei pelo uso direto de uma String nativa
-
-                        //string jsonBody = $"{{\"probeNow\": \"{DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset.ToString()}\", \"roundTrip\": {syncInfo.RoundTrip}}}";
-
-
-
-                        await VerificaTarefa(response.job.id,accessToken, jobDone);
+                        await VerificaTarefa(response.job.id, accessToken, jobDone);
                     }
 
-                   if (sonda == null) 
-                   {
-                       Notificar("Erro");
-                       throw new Exception($"Sonda não encontrada");
-                   }
-
+                    if (sonda == null)
+                    {
+                        Notificar("Erro");
+                        throw new Exception($"Sonda não encontrada");
+                    }
                 }
-                else if( response.code == "Unauthorized") {
+                else if (response.code == "Unauthorized")
+                {
                     Notificar("Erro");
                     throw new Exception($"Token expirado");
                 }
@@ -302,7 +292,6 @@ namespace LacunaSpace.Service
                     throw new NotSupportedException($"Tipo de codificação não suportado: {encoding}");
             }
         }
-
         private string DiscoverEncoding(string timestamp)
         {
 
