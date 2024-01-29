@@ -87,12 +87,18 @@ namespace LacunaSpace.Service
                     ProbeModel sonda = ProbeCache[response.job.probeName];
                     await SyncAndVerifyClockWithProbe(sonda.id, accessToken);
                     List<ProbeSyncInfoModel> verify = ProbeSyncInfoCache.Values.ToList();
+
+                    
+
                     foreach (var syncInfo in verify)
                     {
+                        long tick = DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset;
+
+
                         JobRequestDone jobDone = new JobRequestDone
                         {
-                            probeNow = DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset.ToString(),
-                            roundTrip = syncInfo.RoundTrip,
+                            probeNow = tick.ToString(),
+                            roundTrip = syncInfo.RoundTrip
                         };
 
                         //Tentei ultilizar a serialização Nativa do .Net e Json, mas por algum motivo recebi o erro:(
@@ -101,11 +107,11 @@ namespace LacunaSpace.Service
 
                         //Então optei pelo uso direto de uma String nativa
 
-                        string jsonBody = $"{{\"probeNow\": \"{DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset.ToString()}\", \"roundTrip\": {syncInfo.RoundTrip}}}";
+                        //string jsonBody = $"{{\"probeNow\": \"{DateTimeOffset.UtcNow.Ticks + syncInfo.TimeOffset.ToString()}\", \"roundTrip\": {syncInfo.RoundTrip}}}";
 
 
 
-                        await VerificaTarefa(response.job.id,accessToken, jsonBody);
+                        await VerificaTarefa(response.job.id,accessToken, jobDone);
                     }
 
                    if (sonda == null) 
@@ -132,7 +138,7 @@ namespace LacunaSpace.Service
             }
         }
 
-        public async Task VerificaTarefa(string idJob,string accessToken, string job)
+        public async Task VerificaTarefa(string idJob,string accessToken, JobRequestDone job)
         {
             try
             {
@@ -143,6 +149,11 @@ namespace LacunaSpace.Service
                     
 
 
+                }
+                else if (response.code == "Error")
+                {
+                    Notificar("Error");
+                    throw new Exception($"{response.message}");
                 }
                 else if (response.code == "Unauthorized")
                 {

@@ -116,44 +116,13 @@ namespace LacunaSpace.Service
             }
         public async Task<T> PostWithTokenAsync<T>(string url, object body, string accessToken)
         {
-            try
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-                var jsonSerializerSettings = new JsonSerializerSettings
-                {
-                    Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() },
-                    StringEscapeHandling = StringEscapeHandling.Default,
-                    FloatParseHandling = FloatParseHandling.Double,
-                    FloatFormatHandling = FloatFormatHandling.DefaultValue,
-                    Formatting = Newtonsoft.Json.Formatting.None,
-                    DateFormatHandling = DateFormatHandling.IsoDateFormat,
-                    DateTimeZoneHandling = DateTimeZoneHandling.Utc
-                };
-
-                string jsonBody = JsonConvert.SerializeObject(body, jsonSerializerSettings);
-                HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await _httpClient.PostAsync(url, content);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    T result = JsonConvert.DeserializeObject<T>(jsonResponse, jsonSerializerSettings);
-                    return result;
-                }
-                else
-                {
-                    Notificar($"Erro na requisição POST. Código de status: {response.StatusCode}");
-                    throw new HttpRequestException($"Erro na requisição POST. Código de status: {response.StatusCode}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Notificar($"Erro na requisição POST: {ex.Message}");
-                throw;
-            }
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            string jsonBody = JsonConvert.SerializeObject(body);
+            StringContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await _httpClient.PostAsync(url, content);
+            return await HandleResponse<T>(response);
         }
+
 
 
         public async Task<T> GetWithTokenAsync<T>(string url, string accessToken)
