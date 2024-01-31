@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LacunaSpace.Service
@@ -91,13 +92,23 @@ namespace LacunaSpace.Service
 
                     foreach (var syncInfo in verify)
                     {
-                        // Converta o timestamp para o formato correto antes de criar o JobRequestDone
-                        long probeNowTicks = syncInfo.TimeOffset;
-                        string probeNow = probeNowTicks.ToString();
+                        long probeNowTicks = DateTimeOffset.UtcNow.Ticks;
+                        DateTime dateTime = DateTime.Now;
+
+                        if (long.TryParse(probeNowTicks.ToString(), out long ticks))
+                        {
+                            dateTime = new DateTime(ticks, DateTimeKind.Utc);
+                            Console.WriteLine(dateTime);
+                        }
+
+                        string dateTimeString = dateTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ"); // Formato sugerido para evitar ambiguidades
+                        byte[] dateTimeBytes = BitConverter.GetBytes(dateTime.Ticks);
+                        string dateTimeBase64 = Convert.ToBase64String(dateTimeBytes);
+
 
                         JobRequestDone jobDone = new JobRequestDone
                         {
-                            probeNow = Convert.ToBase64String(BitConverter.GetBytes(syncInfo.TimeOffset)),
+                            probeNow = dateTimeBase64,
                             roundTrip = syncInfo.RoundTrip
                         };
 
@@ -263,7 +274,7 @@ namespace LacunaSpace.Service
             long t2 = DecodeTimestamp(syncResponse.t2);
 
 
-            return (t1 - t0 + t2 - t3) / 2;
+            return (t1 - t0) + (t2 - t3) / 2;
         }
 
         private long ParseAndCalculateRoundTrip(SyncResponseModel syncResponse, long t0, long t3)
@@ -272,7 +283,7 @@ namespace LacunaSpace.Service
             long t2 = DecodeTimestamp(syncResponse.t2);
 
 
-            return t3 - t0 - (t2 - t1);
+            return (t3 - t0) - (t2 - t1);
         }
         private long DecodeTimestamp(string timestamp)
         {
